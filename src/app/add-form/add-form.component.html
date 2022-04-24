@@ -1,0 +1,26 @@
+<div>
+  <h4>{{titreBottom}}</h4>
+
+  <form [formGroup]="newMsgForm">
+    <div>
+      <label for="author">DE:</label>
+      <br>
+      <input class="form-control" name="author" id="author" type="text" formControlName="author"/>
+      <p *ngIf="checkAuthor()" class="alert-success">Le nom entré est correct</p>
+      <p *ngIf="!checkAuthor()" class="alert-danger">Le nom entré est incorrect</p>
+    </div>
+
+    <div>
+      <label for="message">Message:</label>
+      <br>
+      <textarea class="form-control" name="message" id="message" cols="30" rows="10" formControlName="message"></textarea>
+      <p *ngIf="checkMessage()" class="alert-success">Veuillez entrée un message</p>
+      <p *ngIf="!checkMessage()" class="alert-danger">Le message ne contient aucun caractères valides</p>
+    </div>
+
+    <div class="d-flex flex-row-reverse">
+      <div><button (click)="addMessage()" class="btn-success m-2" name="confirm" id="confirm">Valider</button></div>
+      <div><button (click)="resetForm()" class="btn-info m-2" name="cancel" id="cancel">Annuler</button></div>
+    </div>
+  </form>
+</div>
